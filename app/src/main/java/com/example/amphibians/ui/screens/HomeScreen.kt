@@ -23,7 +23,7 @@ import com.example.amphibians.ui.theme.AmphibiansTheme
 fun HomeScreen(
     modifier: Modifier = Modifier
 ){
-    // TODO
+    AmphibianCard()
 }
 
 @Composable
@@ -31,7 +31,7 @@ fun AmphibianCard(
     modifier: Modifier = Modifier
 ) {
     Card(
-        modifier = modifier.padding(8.dp)
+        modifier = modifier.padding(horizontal = 16.dp, vertical = 8.dp)
     ) {
         Column {
             AmphibianTitle(
