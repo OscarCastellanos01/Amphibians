@@ -11,7 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.amphibians.R
+import com.example.amphibians.ui.screens.AmphibianViewModel
 import com.example.amphibians.ui.screens.HomeScreen
 
 @Composable
@@ -22,7 +24,12 @@ fun AmphibianApp() {
         Surface(
             modifier = Modifier.fillMaxSize().padding(innerPadding)
         ) {
-            HomeScreen()
+            val amphibianViewModel: AmphibianViewModel = viewModel(factory = AmphibianViewModel.Factory)
+            HomeScreen(
+                amphibianUiState = amphibianViewModel.amphibianUiState,
+                retryAction = amphibianViewModel::getAmphibians,
+                modifier = Modifier.fillMaxSize()
+            )
         }
     }
 }
